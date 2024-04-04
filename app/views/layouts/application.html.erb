@@ -1,7 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails Template</title>
+    <title>Project Organizer</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Connect Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+
+    <!-- Connect Bootstrap JavaScript and its dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Connect Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+
+    <!-- JQuery related items -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <script>
+
+    //Let's show the about box when we first start up.  
+    $(document).ready(function(){
+        $("#aboutModal").modal('show');
+
+    });
+    
+    </script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +35,23 @@
   </head>
 
   <body>
+
+  <!-- Let's render our navigation menu -->
+  
+
+  <nav class="navbar navbar-dark bg-info">
+      <div class="container-fluid">
+   
+        <a class="navbar-brand text-secondary" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">About</a>
+        <a class="navbar-brand text-white my-2 my-lg-0" id="login" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+
+      </div>
+  </nav>
+
+  <!-- Here's where our "About" box is partially rendered -->
+    <%= render partial: "misc/about" %>
+  <!-- End of render the about box -->
+
     <%= yield %>
   </body>
 </html>
